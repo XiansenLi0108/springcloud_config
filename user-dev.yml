@@ -1,0 +1,24 @@
+# 配置当前的SpringBoot项目：扫描映射，注册别名，配置端口(9091)
+# 端口
+# port动态获取，获取不到就用默认值9091
+server.port: ${port:9091}
+# 配置数据库连接
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/itheima352?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+# 应用名称：
+  application:
+    name: user-service
+
+# mybatis扫描映射，注册别名
+mybatis.mapper-locations: mapper/*Mapper.xml
+mybatis.type-aliases-package: com.itheima.pojo
+
+# 注册中心url地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
